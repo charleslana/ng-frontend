@@ -3,7 +3,8 @@
     <nav-bar-component/>
     <div class="home-bg"></div>
     <div class="has-text-centered">
-      <b-button class="is-uppercase is-bold is-register" size="is-large" type="is-primary">Cadastre-se</b-button>
+      <b-button class="is-uppercase has-text-weight-bold is-register" size="is-large" type="is-primary">Cadastre-se
+      </b-button>
     </div>
     <section class="hero">
       <div class="hero-body">
@@ -54,7 +55,8 @@
               <p>Aventure-se nessa Aventura Ninja</p>
               <p>Naruto Game é um dos mais populares "browser games" de Naruto. Em nosso jogo você será um ninja e sua
                 missão é desenvolver suas habilidades e traçar seu próprio caminho ninja para tornar-se Kage.</p>
-              <b-button class="is-uppercase is-bold mt-5 is-detail-button" size="is-large" type="is-default">Crie sua
+              <b-button class="is-uppercase has-text-weight-bold mt-5 is-detail-button is-size-7-mobile"
+                        size="is-size-4-desktop" type="is-default">Crie sua
                 Conta
               </b-button>
             </div>
@@ -121,6 +123,38 @@
           <h3 class="is-uppercase">{{ name }}</h3>
           <p>{{ kage }} - Nível {{ level }}</p>
         </div>
+      </div>
+    </section>
+    <section class="is-relative detail detail-2">
+      <div class="top reverse">
+        <img alt="Detail 2" src="../assets/images/layout/home/detail-2.png"/>
+      </div>
+      <div class="hero">
+        <div class="hero-body">
+          <div class="columns is-flex-wrap-wrap has-text-centered is-align-items-center">
+            <div class="column is-half is-hidden-mobile">
+              <b-carousel :arrow="false" :indicator="false" :indicator-inside="false" :interval="5000"
+                          :pause-hover="false" animated="fade">
+                <b-carousel-item v-for="(item, i) in 2" :key="i">
+                  <b-image :src="require(`../assets/images/layout/home/featured-${2 - i}.png`)" class="image"></b-image>
+                </b-carousel-item>
+              </b-carousel>
+            </div>
+            <div class="column is-half is-uppercase">
+              <p class="is-size-2 title">Escolha seu personagem</p>
+              <p>Aventure-se nessa Aventura Ninja</p>
+              <p>Você é livre para personalizar seu personagem e criar suas próprias combinações de habilidades,
+                invocações, clãs e elementos</p>
+              <b-button class="is-uppercase mt-5 is-detail-2-button has-text-weight-bold is-size-7-mobile"
+                        size="is-size-4-desktop" type="is-default">Ver todos
+                os personagens
+              </b-button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom reverse">
+        <img alt="Detail 1" src="../assets/images/layout/home/detail-1.png"/>
       </div>
     </section>
   </div>
@@ -276,10 +310,29 @@ export default {
   background-color: #fc8833;
 }
 
+.detail-2 .hero {
+  background-color: #5b8c79;
+  margin-top: -0.1rem;
+}
+
+.detail-2 .top img {
+  background-color: #5b8c79;
+  margin-bottom: 0.7rem;
+}
+
+.detail-2 .bottom img {
+  background-color: #5b8c79;
+  margin-bottom: -0.4rem;
+}
+
+.is-detail-2-button {
+  color: #5b8c79;
+}
+
 .map-section {
   position: relative;
   padding-top: 0;
-  height: 80rem;
+  height: 60rem;
   display: flex;
   justify-content: center;
 }
@@ -462,5 +515,93 @@ export default {
   color: #0c306a;
   font-weight: normal;
   font-size: 2.5rem;
+}
+
+.reverse {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 769px) {
+  .villages-left, .villages-right {
+    height: 10rem;
+  }
+
+  .circle-active {
+    width: 7rem !important;
+  }
+
+  .character-image {
+    width: 15rem;
+  }
+
+  .character-name h3 {
+    font-size: 3rem;
+  }
+
+  .account {
+    margin-top: 0;
+  }
+
+  .account h3 {
+    font-size: 1.7rem;
+    margin-top: -5rem;
+  }
+
+  .account p {
+    font-size: 1rem;
+  }
+
+  .circle {
+    height: 65%;
+    display: flex;
+  }
+
+  .circle-left {
+    left: 0;
+  }
+
+  .circle-right {
+    right: 0;
+  }
+
+  .village-1 {
+    transform: translate(1.5rem, 7rem);
+  }
+
+  .village-2 {
+    transform: translate(0.5rem, 5rem);
+  }
+
+  .village-3 {
+    transform: translate(2rem, 3rem);
+  }
+
+  .village-4 {
+    transform: translate(5rem, -0.5rem);
+  }
+
+  .village-5 {
+    transform: translate(-1rem, 7rem);
+  }
+
+  .village-6 {
+    transform: translate(0.4rem, 5rem);
+  }
+
+  .village-7 {
+    transform: translate(-1rem, 3rem);
+  }
+
+  .village-8 {
+    transform: translate(-4rem, -0.2rem);
+  }
+
+  .map-section {
+    height: 27rem;
+  }
+
+  .detail-2 .top img {
+    margin-bottom: 0.4rem;
+  }
 }
 </style>
