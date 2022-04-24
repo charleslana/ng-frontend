@@ -13,8 +13,6 @@
   font-family: Phagspa, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -35,13 +33,25 @@ body {
   padding-top: 0 !important;
 }
 
-.button.is-primary {
-  background-color: #fc8834 !important;
+.button {
   border-radius: 0.5rem !important;
   letter-spacing: 0.1rem;
 }
 
-.button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active) {
+.button.is-primary {
+  background-color: #fc8834 !important;
+}
+
+.button:hover, .button.is-hovered {
+  border-color: transparent !important;
+}
+
+.button:focus, .button.is-focused {
+  border-color: transparent !important;
+}
+
+.button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active),
+.button.is-default:focus:not(:active), .button.is-default.is-focused:not(:active) {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
@@ -71,5 +81,23 @@ body {
 
 .navbar-burger {
   color: white !important;
+}
+
+.title {
+  font-family: GTAmericaBold, Helvetica, Arial, sans-serif;
+}
+
+.card {
+  box-shadow: inset 8rem 54rem 0 0 #0c306a !important;
+  color: white !important;
+}
+
+.link {
+  color: #007bff !important;
+}
+
+.link:hover {
+  color: #0056b3 !important;
+  text-decoration: underline;
 }
 </style>

@@ -32,6 +32,20 @@
           </b-button>
         </div>
       </b-navbar-item>
+      <b-navbar-item tag="div">
+        <img
+            alt="Language Brazil"
+            height="45"
+            src="../assets/images/social/brazil.svg" width="45"
+        >
+      </b-navbar-item>
+      <b-navbar-item tag="div">
+        <img
+            alt="Language English"
+            class="label-opacity"
+            height="45" src="../assets/images/social/usa.svg" width="45"
+        >
+      </b-navbar-item>
     </template>
   </b-navbar>
 </template>
@@ -131,4 +145,7 @@ nav a:hover:before {
   max-height: none;
 }
 
+.label-opacity {
+  opacity: 0.3;
+}
 </style>
