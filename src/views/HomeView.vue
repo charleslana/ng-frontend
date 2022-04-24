@@ -42,11 +42,11 @@
         </div>
       </div>
     </section>
-    <div class="is-relative detail">
+    <section class="is-relative detail">
       <div class="top">
         <img alt="Detail 1" src="../assets/images/layout/home/detail-1.png"/>
       </div>
-      <section class="hero">
+      <div class="hero">
         <div class="hero-body">
           <div class="columns is-flex-wrap-wrap has-text-centered is-align-items-center">
             <div class="column is-half is-uppercase">
@@ -68,11 +68,61 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
       <div class="bottom">
         <img alt="Detail 2" src="../assets/images/layout/home/detail-2.png"/>
       </div>
-    </div>
+    </section>
+    <section class="map-section">
+      <div class="map"></div>
+      <div class="map-content">
+        <div class="circle circle-left">
+          <img alt="Circle left" src="../assets/images/layout/home/circle-left.png"/>
+          <div class="villages-left">
+            <div class="round-left circle-active village-1">
+              <img alt="Village 1" src="../assets/images/layout/home/villages/1.png" @click="changeCharacter(1)"/>
+            </div>
+            <div class="round-left circle-active village-2">
+              <img alt="Village 2" src="../assets/images/layout/home/villages/2.png" @click="changeCharacter(2)"/>
+            </div>
+            <div class="round-left circle-active village-3">
+              <img alt="Village 3" src="../assets/images/layout/home/villages/3.png" @click="changeCharacter(3)"/>
+            </div>
+            <div class="round-left circle-active village-4">
+              <img alt="Village 4" src="../assets/images/layout/home/villages/4.png" @click="changeCharacter(4)"/>
+            </div>
+          </div>
+        </div>
+        <div class="circle circle-right">
+          <img alt="Circle right" src="../assets/images/layout/home/circle-right.png"/>
+          <div class="villages-right">
+            <div class="round-right circle-active village-5">
+              <img alt="Village 5" src="../assets/images/layout/home/villages/5.png" @click="changeCharacter(5)"/>
+            </div>
+            <div class="round-right circle-active village-6">
+              <img alt="Village 6" src="../assets/images/layout/home/villages/6.png" @click="changeCharacter(6)"/>
+            </div>
+            <div class="round-right circle-active village-7">
+              <img alt="Village 7" src="../assets/images/layout/home/villages/7.png" @click="changeCharacter(7)"/>
+            </div>
+            <div class="round-right circle-active village-8">
+              <img alt="Village 8" src="../assets/images/layout/home/villages/8.png" @click="changeCharacter(8)"/>
+            </div>
+          </div>
+        </div>
+        <div class="character-image">
+          <img :src="require(`../assets/images/layout/home/hall-of-fame/${characterImage}.png`)"
+               alt="Character avatar"/>
+        </div>
+        <div class="character-name is-uppercase title">
+          <h3>{{ characterName }}</h3>
+        </div>
+        <div class="account">
+          <h3 class="is-uppercase">{{ name }}</h3>
+          <p>{{ kage }} - Nível {{ level }}</p>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 <script>
@@ -81,7 +131,92 @@ import NavBarComponent from "@/components/NavBarComponent";
 export default {
   data() {
     return {
-      numbers: [1, 2, 3]
+      numbers: [1, 2, 3],
+      data: [
+        {
+          village: 1,
+          name: 'Test',
+          characterImage: 2,
+          characterName: 'Naruto',
+          level: 2,
+          kage: 'Hokage'
+        },
+        {
+          village: 2,
+          name: 'Test 2',
+          characterImage: 3,
+          characterName: 'Sabaku',
+          level: 3,
+          kage: 'Kazekage'
+        },
+        {
+          village: 3,
+          name: 'Test 3',
+          characterImage: 4,
+          characterName: 'Deidara',
+          level: 4,
+          kage: 'Mizukage'
+        },
+        {
+          village: 4,
+          name: 'Test 4',
+          characterImage: 5,
+          characterName: 'Shinki',
+          level: 4,
+          kage: 'Tsuchikage'
+        },
+        {
+          village: 5,
+          name: 'Test 5',
+          characterImage: 6,
+          characterName: 'Sasuke',
+          level: 5,
+          kage: 'Raikage'
+        },
+        {
+          village: 6,
+          name: 'Test 6',
+          characterImage: 7,
+          characterName: 'Kakashi',
+          level: 6,
+          kage: 'Líder'
+        },
+        {
+          village: 7,
+          name: 'Test 7',
+          characterImage: 8,
+          characterName: 'Itachi',
+          level: 7,
+          kage: 'Otokage'
+        },
+        {
+          village: 8,
+          name: 'Test 8',
+          characterImage: 9,
+          characterName: 'Yahiko',
+          level: 8,
+          kage: 'Amekage'
+        }
+      ],
+      village: 1,
+      name: 'Charles',
+      characterImage: 1,
+      characterName: 'Sasuke',
+      level: 1,
+      kage: 'Staff'
+    }
+  },
+  methods: {
+    changeCharacter(villageId) {
+      this.data.forEach(element => {
+        if (element.village === villageId) {
+          this.name = element.name
+          this.characterImage = element.characterImage;
+          this.characterName = element.characterName;
+          this.level = element.level;
+          this.kage = element.kage;
+        }
+      });
     }
   },
   components: {NavBarComponent}
@@ -107,7 +242,19 @@ export default {
   color: white;
 }
 
-.detail {
+.card-image {
+  overflow: hidden;
+}
+
+.image img {
+  transition: all 0.3s;
+}
+
+.image img:hover {
+  transform: scale(1.1);
+}
+
+.detail .hero {
   background-color: #fc8833;
   color: white;
 }
@@ -118,5 +265,202 @@ export default {
 
 .is-detail-button {
   color: #fc8833;
+}
+
+.detail .top img {
+  background-color: #fc8833;
+  margin-bottom: -0.4rem;
+}
+
+.detail .bottom img {
+  background-color: #fc8833;
+}
+
+.map-section {
+  position: relative;
+  padding-top: 0;
+  height: 80rem;
+  display: flex;
+  justify-content: center;
+}
+
+.map {
+  filter: grayscale(100%);
+  background-image: url(../assets/images/layout/home/map.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.map-content {
+  max-width: 64%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+}
+
+.circle {
+  position: absolute;
+  bottom: 0;
+  top: 5rem;
+}
+
+.circle-left {
+  justify-content: flex-start;
+  left: 0;
+}
+
+.villages-left, .villages-right {
+  height: 20rem;
+}
+
+.villages-left {
+  position: absolute;
+  top: 1.6rem;
+  left: -3.9rem;
+  max-height: 64rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  bottom: 0;
+}
+
+.round-left, .round-right {
+  z-index: 1;
+}
+
+.round-left {
+  padding: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.round-left img {
+  border-radius: 50%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.round-left img:hover, .round-right img:hover {
+  transform: scale(1.1);
+}
+
+.circle-active {
+  width: 14rem;
+}
+
+.village-1 {
+  transform: translate(-1rem, 13rem);
+}
+
+.village-2 {
+  transform: translate(-4rem, 11rem);
+}
+
+.village-3 {
+  transform: translate(-3rem, 10rem);
+}
+
+.village-4 {
+  transform: translate(3rem, 7.5rem);
+}
+
+.circle-right {
+  justify-content: flex-end;
+  right: 0;
+}
+
+.villages-right {
+  position: absolute;
+  top: 1.6rem;
+  max-height: 64rem;
+  right: -3.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  bottom: 0;
+}
+
+.round-right {
+  padding: 2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.round-right img {
+  border-radius: 50%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.village-5 {
+  transform: translate(1rem, 13rem);
+}
+
+.village-6 {
+  transform: translate(4rem, 11.5rem);
+}
+
+.village-7 {
+  transform: translate(3rem, 10.5rem);
+}
+
+.village-8 {
+  transform: translate(-3rem, 8rem);
+}
+
+.character-image {
+  width: 50rem;
+  height: auto;
+  transform: translateY(1rem);
+}
+
+.character-name {
+  position: absolute;
+  z-index: -1;
+  top: 2rem;
+}
+
+.character-name h3 {
+  font-size: 10rem;
+  color: #5b8c79;
+  letter-spacing: 1rem;
+}
+
+.account {
+  margin-top: -14rem;
+}
+
+.account h3 {
+  color: #5b8c79;
+  font-weight: bold;
+  font-size: 4rem;
+  margin-top: -7rem;
+}
+
+.account p {
+  color: #0c306a;
+  font-weight: normal;
+  font-size: 2.5rem;
 }
 </style>
