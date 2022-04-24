@@ -50,15 +50,17 @@
       <div class="hero">
         <div class="hero-body">
           <div class="columns is-flex-wrap-wrap has-text-centered is-align-items-center">
-            <div class="column is-half is-uppercase" data-aos="fade-up-right">
-              <p class="is-size-2 title">Bem vindo ao Naruto Game</p>
-              <p>Aventure-se nessa Aventura Ninja</p>
-              <p>Naruto Game é um dos mais populares "browser games" de Naruto. Em nosso jogo você será um ninja e sua
-                missão é desenvolver suas habilidades e traçar seu próprio caminho ninja para tornar-se Kage.</p>
-              <b-button class="is-uppercase has-text-weight-bold mt-5 is-detail-button is-size-7-mobile"
-                        size="is-size-4-desktop" type="is-default">Crie sua
-                Conta
-              </b-button>
+            <div class="column is-half is-uppercase">
+              <div data-aos="fade-up-right">
+                <p class="is-size-2 title">Bem vindo ao Naruto Game</p>
+                <p>Aventure-se nessa Aventura Ninja</p>
+                <p>Naruto Game é um dos mais populares "browser games" de Naruto. Em nosso jogo você será um ninja e sua
+                  missão é desenvolver suas habilidades e traçar seu próprio caminho ninja para tornar-se Kage.</p>
+                <b-button class="is-uppercase has-text-weight-bold mt-5 is-detail-button is-size-7-mobile"
+                          size="is-size-4-desktop" type="is-default">Crie sua
+                  Conta
+                </b-button>
+              </div>
             </div>
             <div class="column is-half is-hidden-mobile">
               <b-carousel :arrow="false" :indicator="false" :indicator-inside="false" :interval="5000"
@@ -140,15 +142,17 @@
                 </b-carousel-item>
               </b-carousel>
             </div>
-            <div class="column is-half is-uppercase" data-aos="fade-up-left">
-              <p class="is-size-2 title">Escolha seu personagem</p>
-              <p>Aventure-se nessa Aventura Ninja</p>
-              <p>Você é livre para personalizar seu personagem e criar suas próprias combinações de habilidades,
-                invocações, clãs e elementos</p>
-              <b-button class="is-uppercase mt-5 is-detail-2-button has-text-weight-bold is-size-7-mobile"
-                        size="is-size-4-desktop" type="is-default">Ver todos
-                os personagens
-              </b-button>
+            <div class="column is-half is-uppercase">
+              <div data-aos="fade-up-left">
+                <p class="is-size-2 title">Escolha seu personagem</p>
+                <p>Aventure-se nessa Aventura Ninja</p>
+                <p>Você é livre para personalizar seu personagem e criar suas próprias combinações de habilidades,
+                  invocações, clãs e elementos</p>
+                <b-button class="is-uppercase mt-5 is-detail-2-button has-text-weight-bold is-size-7-mobile"
+                          size="is-size-4-desktop" type="is-default">Ver todos
+                  os personagens
+                </b-button>
+              </div>
             </div>
           </div>
         </div>
