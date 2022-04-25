@@ -42,6 +42,10 @@ body {
   background-color: #fc8834 !important;
 }
 
+.button.is-primary:hover {
+  filter: brightness(90%);
+}
+
 .button:hover, .button.is-hovered {
   border-color: transparent !important;
 }

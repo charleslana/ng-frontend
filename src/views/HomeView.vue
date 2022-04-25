@@ -161,10 +161,12 @@
         <img alt="Detail 1" src="../assets/images/layout/home/detail-1.png"/>
       </div>
     </section>
+    <footer-component/>
   </div>
 </template>
 <script>
 import NavBarComponent from "@/components/NavBarComponent";
+import FooterComponent from "@/components/FooterComponent";
 
 export default {
   data() {
@@ -257,7 +259,7 @@ export default {
       });
     }
   },
-  components: {NavBarComponent}
+  components: {FooterComponent, NavBarComponent}
 }
 </script>
 
@@ -275,6 +277,8 @@ export default {
 .is-register {
   margin-top: -2.2rem;
   transition: all 0.3s;
+  background-image: linear-gradient(to right top, #fc8834, #fd8936, #fd8b38, #fe8c39, #fe8d3b, #fa8937, #f68434, #f28030, #e87526, #de6b1b, #d3600f, #c95501);
+  box-shadow: 0 3px 2px 0 rgb(0 0 0 / 50%);
 }
 
 .is-register:hover {

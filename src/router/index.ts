@@ -4,23 +4,16 @@ import HomeView from '../views/HomeView.vue';
 
 Vue.use(VueRouter);
 
-const routes: Array<RouteConfig> = [
-    {
-        path: '/',
-        name: 'home',
-        component: HomeView
-    },
-    {
-        path: '/about',
-        name: 'about',
-        component: () => import('../views/AboutView.vue')
-    }
-];
+const routes: Array<RouteConfig> = [{
+    path: '/', name: 'home', component: HomeView
+}, {
+    path: '/about', name: 'about', component: () => import('../views/AboutView.vue')
+}];
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
+    mode: 'history', base: process.env.BASE_URL, routes, scrollBehavior() {
+        window.scrollTo(0, 0);
+    }
 });
 
 export default router;
