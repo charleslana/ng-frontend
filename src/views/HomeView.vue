@@ -3,7 +3,8 @@
     <nav-bar-component/>
     <div class="home-bg"></div>
     <div class="has-text-centered">
-      <b-button class="is-uppercase has-text-weight-bold is-register" size="is-large" type="is-primary">Cadastre-se
+      <b-button class="is-uppercase has-text-weight-bold is-register" size="is-large" type="is-primary"
+                @click="toggleRegisterModal">Cadastre-se
       </b-button>
     </div>
     <section class="hero">
@@ -25,7 +26,7 @@
         <div class="columns is-flex-wrap-wrap">
           <div v-for="number of numbers" :key="number" class="column is-one-third" data-aos="fade-up">
             <router-link to="/">
-              <div class="card">
+              <div class="card card-news">
                 <div class="card-image">
                   <figure class="image">
                     <img :src="require(`../assets/images/news/${number}.png`)" alt="News">
@@ -57,7 +58,7 @@
                 <p>Naruto Game é um dos mais populares "browser games" de Naruto. Em nosso jogo você será um ninja e sua
                   missão é desenvolver suas habilidades e traçar seu próprio caminho ninja para tornar-se Kage.</p>
                 <b-button class="is-uppercase has-text-weight-bold mt-5 is-detail-button is-size-7-mobile"
-                          size="is-size-4-desktop" type="is-default">Crie sua
+                          size="is-size-4-desktop" type="is-default" @click="toggleRegisterModal">Crie sua
                   Conta
                 </b-button>
               </div>
@@ -161,6 +162,56 @@
         <img alt="Detail 1" src="../assets/images/layout/home/detail-1.png"/>
       </div>
     </section>
+    <b-modal v-model="isModalRegisterActive" :can-cancel="false" has-modal-card trap-focus>
+      <div class="card">
+        <div class="card-content">
+          <form @submit="handleFormRegister">
+            <div class="modal-card" style="width: auto">
+              <header class="modal-card-head">
+                <p class="modal-card-title">
+                  <font-awesome-icon icon="fa-solid fa-user-ninja"/>
+                  Inicie sua Aventura
+                </p>
+                <button class="delete" type="button" @click="toggleRegisterModal"/>
+              </header>
+              <section class="modal-card-body">
+                <b-field label="E-mail">
+                  <b-input
+                      :value="emailRegister"
+                      placeholder="Informe seu e-mail"
+                      required
+                      type="email">
+                  </b-input>
+                </b-field>
+                <b-field label="Senha">
+                  <b-input
+                      :value="passwordRegister"
+                      password-reveal
+                      placeholder="Informe sua senha"
+                      required
+                      type="password">
+                  </b-input>
+                </b-field>
+                <b-field label="Confirmar Senha">
+                  <b-input
+                      :value="confirmationPasswordRegister"
+                      password-reveal
+                      placeholder="Confirme sua senha"
+                      required
+                      type="password">
+                  </b-input>
+                </b-field>
+                <b-checkbox v-model="checkboxAcceptTerms" required>Declaro que li e concordo com os Termos de Uso
+                </b-checkbox>
+              </section>
+              <footer class="modal-card-foot">
+                <b-button label="Jogar Agora" native-type="submit" type="is-primary"/>
+              </footer>
+            </div>
+          </form>
+        </div>
+      </div>
+    </b-modal>
     <footer-component/>
   </div>
 </template>
@@ -243,7 +294,12 @@ export default {
       characterImage: 1,
       characterName: 'Sasuke',
       level: 1,
-      kage: 'Staff'
+      kage: 'Staff',
+      isModalRegisterActive: false,
+      emailRegister: null,
+      passwordRegister: null,
+      confirmationPasswordRegister: null,
+      checkboxAcceptTerms: false
     }
   },
   methods: {
@@ -257,6 +313,13 @@ export default {
           this.kage = element.kage;
         }
       });
+    },
+    toggleRegisterModal() {
+      this.isModalRegisterActive = !this.isModalRegisterActive;
+    },
+    handleFormRegister(e) {
+      alert('Register Successfully.');
+      e.preventDefault();
     }
   },
   components: {FooterComponent, NavBarComponent}
@@ -291,6 +354,11 @@ export default {
 
 .card-image {
   overflow: hidden;
+}
+
+.card-news {
+  box-shadow: inset 8rem 54rem 0 0 #0c306a !important;
+  color: white !important;
 }
 
 .image img {

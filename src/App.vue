@@ -91,11 +91,6 @@ body {
   font-family: GTAmericaBold, Helvetica, Arial, sans-serif;
 }
 
-.card {
-  box-shadow: inset 8rem 54rem 0 0 #0c306a !important;
-  color: white !important;
-}
-
 .link {
   color: #007bff !important;
 }
