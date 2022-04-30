@@ -1,58 +1,118 @@
 <template>
-  <b-navbar :fixed-top="true">
-    <template #brand>
-      <b-navbar-item :to="{ path: '/' }" class="logo" tag="router-link">
-        <img
-            alt="Logo Ng"
-            src="../assets/images/layout/logo.png"
-        >
-      </b-navbar-item>
-    </template>
-    <template #start>
-      <b-navbar-item href="#">
-        Home
-      </b-navbar-item>
-      <b-navbar-item href="#">
-        Notícias
-      </b-navbar-item>
-      <b-navbar-item href="#">
-        Hall da Fama
-      </b-navbar-item>
-      <b-navbar-item href="#">
-        Contato
-      </b-navbar-item>
-    </template>
+  <div>
+    <b-navbar :fixed-top="true">
+      <template #brand>
+        <b-navbar-item :to="{ path: '/' }" class="logo" tag="router-link">
+          <img
+              alt="Logo Ng"
+              src="../assets/images/layout/logo.png"
+          >
+        </b-navbar-item>
+      </template>
+      <template #start>
+        <b-navbar-item href="#">
+          Home
+        </b-navbar-item>
+        <b-navbar-item href="#">
+          Notícias
+        </b-navbar-item>
+        <b-navbar-item href="#">
+          Hall da Fama
+        </b-navbar-item>
+        <b-navbar-item href="#">
+          Contato
+        </b-navbar-item>
+      </template>
 
-    <template #end>
-      <b-navbar-item tag="div">
-        <div class="buttons">
-          <b-button class="is-uppercase is-bold" type="is-primary">
-            <font-awesome-icon class="mr-2" icon="fa-regular fa-user"/>
-            Login
-          </b-button>
+      <template #end>
+        <b-navbar-item tag="div">
+          <div class="buttons">
+            <b-button class="is-uppercase is-bold" type="is-primary" @click="toggleLoginModal">
+              <font-awesome-icon class="mr-2" icon="fa-regular fa-user"/>
+              Login
+            </b-button>
+          </div>
+        </b-navbar-item>
+        <b-navbar-item tag="div">
+          <img
+              alt="Language Brazil"
+              height="45"
+              src="../assets/images/social/brazil.svg" width="45"
+          >
+        </b-navbar-item>
+        <b-navbar-item tag="div">
+          <img
+              alt="Language English"
+              class="label-opacity"
+              height="45" src="../assets/images/social/usa.svg" width="45"
+          >
+        </b-navbar-item>
+      </template>
+    </b-navbar>
+    <b-modal v-model="isModalActive" :can-cancel="false" has-modal-card trap-focus>
+      <div class="card">
+        <div class="card-content">
+          <form @submit="handleFormLogin">
+            <div class="modal-card" style="width: auto">
+              <header class="modal-card-head">
+                <p class="modal-card-title">
+                  <font-awesome-icon icon="fa-solid fa-user-ninja"/>
+                  Acessar minha conta
+                </p>
+                <button :disabled="isLoading" class="delete" type="button" @click="toggleLoginModal"/>
+              </header>
+              <section class="modal-card-body">
+                <b-field label="E-mail">
+                  <b-input
+                      :value="email"
+                      placeholder="Informe seu e-mail"
+                      required
+                      type="email">
+                  </b-input>
+                </b-field>
+                <b-field label="Senha">
+                  <b-input
+                      :value="password"
+                      password-reveal
+                      placeholder="Informe sua senha"
+                      required
+                      type="password">
+                  </b-input>
+                </b-field>
+              </section>
+              <footer class="modal-card-foot">
+                <b-button :disabled="isLoading" :loading="isLoading" label="Acessar" native-type="submit"
+                          type="is-info"/>
+              </footer>
+            </div>
+          </form>
         </div>
-      </b-navbar-item>
-      <b-navbar-item tag="div">
-        <img
-            alt="Language Brazil"
-            height="45"
-            src="../assets/images/social/brazil.svg" width="45"
-        >
-      </b-navbar-item>
-      <b-navbar-item tag="div">
-        <img
-            alt="Language English"
-            class="label-opacity"
-            height="45" src="../assets/images/social/usa.svg" width="45"
-        >
-      </b-navbar-item>
-    </template>
-  </b-navbar>
+      </div>
+    </b-modal>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "NavBarComponent"
+  name: "NavBarComponent",
+  data() {
+    return {
+      isModalActive: false,
+      email: null,
+      password: null,
+      isLoading: false
+    }
+  },
+  methods: {
+    toggleLoginModal() {
+      this.isModalActive = !this.isModalActive;
+    },
+    handleFormLogin(e) {
+      this.isLoading = true;
+      setTimeout(() => this.isLoading = false, 3000);
+      e.preventDefault();
+    }
+  }
 }
 </script>
 

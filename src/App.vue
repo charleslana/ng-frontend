@@ -99,4 +99,13 @@ body {
   color: #0056b3 !important;
   text-decoration: underline;
 }
+
+.input:focus {
+  border-color: #70c5c0 !important;
+  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%) !important;
+}
+
+.modal-card-head {
+  overflow-x: auto;
+}
 </style>

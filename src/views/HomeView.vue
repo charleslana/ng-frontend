@@ -162,7 +162,7 @@
         <img alt="Detail 1" src="../assets/images/layout/home/detail-1.png"/>
       </div>
     </section>
-    <b-modal v-model="isModalRegisterActive" :can-cancel="false" has-modal-card trap-focus>
+    <b-modal v-model="isModalActive" :can-cancel="false" has-modal-card trap-focus>
       <div class="card">
         <div class="card-content">
           <form @submit="handleFormRegister">
@@ -172,12 +172,12 @@
                   <font-awesome-icon icon="fa-solid fa-user-ninja"/>
                   Inicie sua Aventura
                 </p>
-                <button class="delete" type="button" @click="toggleRegisterModal"/>
+                <button :disabled="isLoading" class="delete" type="button" @click="toggleRegisterModal"/>
               </header>
               <section class="modal-card-body">
                 <b-field label="E-mail">
                   <b-input
-                      :value="emailRegister"
+                      :value="email"
                       placeholder="Informe seu e-mail"
                       required
                       type="email">
@@ -185,7 +185,7 @@
                 </b-field>
                 <b-field label="Senha">
                   <b-input
-                      :value="passwordRegister"
+                      :value="password"
                       password-reveal
                       placeholder="Informe sua senha"
                       required
@@ -194,18 +194,19 @@
                 </b-field>
                 <b-field label="Confirmar Senha">
                   <b-input
-                      :value="confirmationPasswordRegister"
+                      :value="confirmationPassword"
                       password-reveal
                       placeholder="Confirme sua senha"
                       required
                       type="password">
                   </b-input>
                 </b-field>
-                <b-checkbox v-model="checkboxAcceptTerms" required>Declaro que li e concordo com os Termos de Uso
+                <b-checkbox v-model="acceptTerms" required>Declaro que li e concordo com os Termos de Uso
                 </b-checkbox>
               </section>
               <footer class="modal-card-foot">
-                <b-button label="Jogar Agora" native-type="submit" type="is-primary"/>
+                <b-button :disabled="isLoading" :loading="isLoading" label="Jogar Agora" native-type="submit"
+                          type="is-info"/>
               </footer>
             </div>
           </form>
@@ -295,11 +296,12 @@ export default {
       characterName: 'Sasuke',
       level: 1,
       kage: 'Staff',
-      isModalRegisterActive: false,
-      emailRegister: null,
-      passwordRegister: null,
-      confirmationPasswordRegister: null,
-      checkboxAcceptTerms: false
+      isModalActive: false,
+      email: null,
+      password: null,
+      confirmationPassword: null,
+      acceptTerms: false,
+      isLoading: false
     }
   },
   methods: {
@@ -315,10 +317,11 @@ export default {
       });
     },
     toggleRegisterModal() {
-      this.isModalRegisterActive = !this.isModalRegisterActive;
+      this.isModalActive = !this.isModalActive;
     },
     handleFormRegister(e) {
-      alert('Register Successfully.');
+      this.isLoading = true;
+      setTimeout(() => this.isLoading = false, 3000);
       e.preventDefault();
     }
   },
