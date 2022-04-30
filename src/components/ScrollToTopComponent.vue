@@ -41,4 +41,8 @@ export default {
   transition: all 0.3s;
   z-index: 2;
 }
+
+.is-primary {
+  background-color: #2A2A2A !important;
+}
 </style>

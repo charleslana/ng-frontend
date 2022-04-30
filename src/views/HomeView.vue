@@ -165,7 +165,7 @@
     <b-modal v-model="isModalActive" :can-cancel="false" has-modal-card trap-focus>
       <div class="card">
         <div class="card-content">
-          <form @submit="handleFormRegister">
+          <form>
             <div class="modal-card" style="width: auto">
               <header class="modal-card-head">
                 <p class="modal-card-title">
@@ -175,9 +175,15 @@
                 <button :disabled="isLoading" class="delete" type="button" @click="toggleRegisterModal"/>
               </header>
               <section class="modal-card-body">
+                <div v-if="errors.length" class="help is-danger">
+                  <strong>Por favor corrija os seguintes erro(s):</strong>
+                  <ul>
+                    <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
+                  </ul>
+                </div>
                 <b-field label="E-mail">
                   <b-input
-                      :value="email"
+                      v-model="email"
                       placeholder="Informe seu e-mail"
                       required
                       type="email">
@@ -185,7 +191,7 @@
                 </b-field>
                 <b-field label="Senha">
                   <b-input
-                      :value="password"
+                      v-model="password"
                       password-reveal
                       placeholder="Informe sua senha"
                       required
@@ -194,7 +200,7 @@
                 </b-field>
                 <b-field label="Confirmar Senha">
                   <b-input
-                      :value="confirmationPassword"
+                      v-model="passwordConfirmation"
                       password-reveal
                       placeholder="Confirme sua senha"
                       required
@@ -205,8 +211,8 @@
                 </b-checkbox>
               </section>
               <footer class="modal-card-foot">
-                <b-button :disabled="isLoading" :loading="isLoading" label="Jogar Agora" native-type="submit"
-                          type="is-info"/>
+                <b-button :disabled="isLoading" :loading="isLoading" label="Jogar Agora" type="is-info"
+                          @click="handleFormRegister"/>
               </footer>
             </div>
           </form>
@@ -297,11 +303,12 @@ export default {
       level: 1,
       kage: 'Staff',
       isModalActive: false,
-      email: null,
-      password: null,
-      confirmationPassword: null,
+      email: '',
+      password: '',
+      passwordConfirmation: '',
       acceptTerms: false,
-      isLoading: false
+      isLoading: false,
+      errors: []
     }
   },
   methods: {
@@ -318,11 +325,42 @@ export default {
     },
     toggleRegisterModal() {
       this.isModalActive = !this.isModalActive;
+      this.errors = [];
     },
-    handleFormRegister(e) {
-      this.isLoading = true;
-      setTimeout(() => this.isLoading = false, 3000);
-      e.preventDefault();
+    handleFormRegister() {
+      this.handleFieldsTrim();
+      this.handleFormRegisterErrors();
+      if (!this.errors.length) {
+        this.isLoading = true;
+        setTimeout(() => this.isLoading = false, 3000);
+      }
+    },
+    validEmail: function (email) {
+      const regExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return regExp.test(email);
+    },
+    handleFormRegisterErrors() {
+      this.errors = [];
+      if (!this.email) {
+        this.errors.push("E-mail é requerido.");
+      }
+      if (!this.validEmail(this.email)) {
+        this.errors.push('O e-mail deve ser válido.');
+      }
+      if (this.password !== this.passwordConfirmation) {
+        this.errors.push('A confirmação das senhas está incorreta.');
+      }
+      if (this.password.length < 6) {
+        this.errors.push('A senha deve conter no mínimo 6 caracteres');
+      }
+      if (!this.acceptTerms) {
+        this.errors.push("Você deve aceitar os termos.");
+      }
+    },
+    handleFieldsTrim() {
+      this.email = this.email.trim();
+      this.password = this.password.trim();
+      this.passwordConfirmation = this.passwordConfirmation.trim();
     }
   },
   components: {FooterComponent, NavBarComponent}
