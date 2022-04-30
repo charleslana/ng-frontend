@@ -211,8 +211,8 @@
                 </b-checkbox>
               </section>
               <footer class="modal-card-foot">
-                <b-button :disabled="isLoading" :loading="isLoading" label="Jogar Agora" type="is-info"
-                          @click="handleFormRegister"/>
+                <b-button :disabled="isLoading" :loading="isLoading" expanded label="Jogar Agora"
+                          type="is-info" @click="handleFormRegister"/>
               </footer>
             </div>
           </form>

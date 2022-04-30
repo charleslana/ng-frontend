@@ -81,8 +81,9 @@
                 </b-field>
               </section>
               <footer class="modal-card-foot">
-                <b-button :disabled="isLoading" :loading="isLoading" label="Acessar" native-type="submit"
-                          type="is-info"/>
+                <b-button :disabled="isLoading" :loading="isLoading" expanded
+                          label="Acessar" native-type="submit" type="is-info"/>
+                <router-link class="link" style="width: 100%" to="/recover-password">Recuperar senha</router-link>
               </footer>
             </div>
           </form>

@@ -108,4 +108,12 @@ body {
 .modal-card-head {
   overflow-x: auto;
 }
+
+.link {
+  color: #007bff;
+}
+
+.link:hover {
+  color: #0069d9;
+}
 </style>
