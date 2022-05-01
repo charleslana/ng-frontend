@@ -2,39 +2,39 @@
   <div>
     <footer class="footer is-uppercase">
       <div class="content has-text-centered">
-        <p>Naruto Game by Charles © {{ new Date().getFullYear() }}</p>
+        <p>{{ $t('footer.paragraph1', [new Date().getFullYear()]) }}</p>
         <div class="columns">
           <div class="column">
-            <h4 class="has-text-weight-medium has-text-left has-text-white">Naruto Game</h4>
-            <p class="has-text-left">Personagens e ilustrações originais © Copyright 2002 por Masashi Kishimoto.
+            <h4 class="has-text-weight-medium has-text-left has-text-white">{{ $t('footer.footerTitle1') }}</h4>
+            <p class="has-text-left">{{ $t('footer.paragraph3') }}
               <br>
-              Todos os direitos reservados.
+              {{ $t('footer.paragraph4') }}
             </p>
           </div>
           <div class="column">
-            <h4 class="has-text-weight-medium has-text-white">Explorar</h4>
+            <h4 class="has-text-weight-medium has-text-white">{{ $t('footer.footerTitle2') }}</h4>
             <p>
-              <router-link to="/">Manual</router-link>
+              <router-link to="/">{{ $t('footer.linkManual') }}</router-link>
               <br/>
-              <router-link to="/">Notícias</router-link>
+              <router-link to="/">{{ $t('footer.linkNews') }}</router-link>
               <br/>
-              <router-link to="/">Hall da Fama</router-link>
+              <router-link to="/">{{ $t('footer.linkHallOfFame') }}</router-link>
               <br/>
-              <router-link to="/">Divulgue-nos</router-link>
+              <router-link to="/">{{ $t('footer.linkDisclosure') }}</router-link>
               <br/>
-              <a href="#" target="_blank">Discord</a>
+              <a href="#" target="_blank">{{ $t('footer.linkDiscord') }}</a>
             </p>
           </div>
           <div class="column">
-            <h4 class="has-text-weight-medium has-text-justify has-text-white">Geral</h4>
+            <h4 class="has-text-weight-medium has-text-justify has-text-white">{{ $t('footer.footerTitle3') }}</h4>
             <p>
-              <router-link to="/">Termos de Uso</router-link>
+              <router-link to="/">{{ $t('footer.linkTermsOfUse') }}</router-link>
               <br/>
-              <router-link to="/">Política de Privacidade</router-link>
+              <router-link to="/">{{ $t('footer.linkPrivacyPolicy') }}</router-link>
               <br/>
-              <router-link to="/">Regras e Punições</router-link>
+              <router-link to="/">{{ $t('footer.linkRulesAndPunishments') }}</router-link>
               <br/>
-              <router-link to="/">Aviso Legal</router-link>
+              <router-link to="/">{{ $t('footer.linkLegalNotice') }}</router-link>
             </p>
           </div>
         </div>

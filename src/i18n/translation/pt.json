@@ -41,5 +41,30 @@
     "modalPasswordFieldIncorrect": "A confirmação das senhas informadas estão incorreta.",
     "modalPasswordFieldMinimumCharacter": "A senha deve conter no mínimo 6 caracteres.",
     "modalAcceptTermsField": "Você deve aceitar os termos."
+  },
+  "footer": {
+    "paragraph1": "Naruto Game por Charles © {0}",
+    "footerTitle1": "Naruto Game",
+    "paragraph3": "Personagens e ilustrações originais © Copyright 2002 por Masashi Kishimoto.",
+    "paragraph4": "Todos os direitos reservados.",
+    "footerTitle2": "Explorar",
+    "linkManual": "Manual",
+    "linkNews": "Notícias",
+    "linkHallOfFame": "Hall da Fama",
+    "linkDisclosure": "Divulgue-nos",
+    "linkDiscord": "Discord",
+    "footerTitle3": "Geral",
+    "linkTermsOfUse": "Termos de Uso",
+    "linkPrivacyPolicy": "Política de Privacidade",
+    "linkRulesAndPunishments": "Regras e Punições",
+    "linkLegalNotice": "Aviso Legal"
+  },
+  "notFound": {
+    "title": "Acesso Negado",
+    "paragraph1": "A página que você tentou acessar não foi carregada e geralmente acontece pelos seguintes motivos:",
+    "paragraph2": "Você não tem permissão para abri-la ou tentou acessá-la de forma ilegal.",
+    "paragraph3": "Houve uma tentativa de direcioná-lo para o local correto, mas algo impediu.",
+    "paragraph4": "Sua conexão com o servidor não está estável.",
+    "paragraph5": "Tente novamente, caso necessite de ajuda, use o sistema de Suporte."
   }
 }

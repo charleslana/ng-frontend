@@ -41,5 +41,30 @@
     "modalPasswordFieldIncorrect": "Confirmation of the entered passwords is incorrect.",
     "modalPasswordFieldMinimumCharacter": "The password must contain at least 6 characters.",
     "modalAcceptTermsField": "You must accept the terms."
+  },
+  "footer": {
+    "paragraph1": "Naruto Game by Charles © {0}",
+    "footerTitle1": "Naruto Game",
+    "paragraph3": "Original characters and illustrations © Copyright 2002 by Masashi Kishimoto.",
+    "paragraph4": "All rights reserved.",
+    "footerTitle2": "Explore",
+    "linkManual": "Manual",
+    "linkNews": "News",
+    "linkHallOfFame": "Hall of Fame",
+    "linkDisclosure": "Disclosure",
+    "linkDiscord": "Discord",
+    "footerTitle3": "General",
+    "linkTermsOfUse": "Terms of Use",
+    "linkPrivacyPolicy": "Privacy Policy",
+    "linkRulesAndPunishments": "Rules and Punishments",
+    "linkLegalNotice": "Legal Notice"
+  },
+  "notFound": {
+    "title": "Access Denied",
+    "paragraph1": "The page you tried to access did not load and usually happens for the following reasons:",
+    "paragraph2": "You don't have permission to open it or you tried to access it illegally.",
+    "paragraph3": "There was an attempt to direct it to the correct location, but something prevented it.",
+    "paragraph4": "Your connection to the server is not stable.",
+    "paragraph5": "Please try again, if you need help, please use the Support system."
   }
 }

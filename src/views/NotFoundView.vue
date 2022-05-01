@@ -1,16 +1,16 @@
 <template>
   <div>
     <featured-info-component
+        :end-text="$t('notFound.paragraph5').toString()"
         :paragraphs="[
-          'Você não tem permissão para abri-la ou tentou acessá-la de forma ilegal.',
-          'Houve uma tentativa de redirecioná-lo para o local correto, mas algo impediu',
-          'Sua conexão com o servidor não está estável',
+          $t('notFound.paragraph2'),
+          $t('notFound.paragraph3'),
+          $t('notFound.paragraph4'),
           ]"
-        end-text="Tente novamente, caso necessite de ajuda, use o sistema de Suporte."
+        :sub-title="$t('notFound.paragraph1').toString()"
+        :title="$t('notFound.title').toString()"
         icon="fa-solid fa-circle-exclamation"
         image="1"
-        sub-title="A página que você tentou acessar não foi carregada e geralmente acontece pelos seguintes motivos:"
-        title="Acesso Negado"
     />
     <footer-component/>
   </div>
