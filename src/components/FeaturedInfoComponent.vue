@@ -118,4 +118,8 @@ export default {
 .content:not(:last-child) {
   margin-bottom: 0 !important;
 }
+
+.dark-theme .featured-info-body {
+  border-image-source: url(../assets/images/layout/border-chamfer-orange-dark.png);
+}
 </style>

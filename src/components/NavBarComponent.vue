@@ -44,6 +44,9 @@
               src="../assets/images/social/usa.svg" v-bind:class="getLocale('en')" width="45" @click="setLocale('en')"
           >
         </b-navbar-item>
+        <b-navbar-item tag="div">
+          <theme-button-component/>
+        </b-navbar-item>
       </template>
     </b-navbar>
     <b-modal v-model="isModalActive" :can-cancel="false" has-modal-card trap-focus>
@@ -94,9 +97,11 @@
 
 <script>
 import LocalStorageUtils from "@/utils/LocalStorageUtils";
+import ThemeButtonComponent from "@/components/ThemeButtonComponent";
 
 export default {
   name: "NavBarComponent",
+  components: {ThemeButtonComponent},
   data() {
     return {
       isModalActive: false,

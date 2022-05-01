@@ -12,7 +12,7 @@
         <div class="level">
           <div class="level-left">
             <div class="level-item">
-              <p class="title is-uppercase is-bold">
+              <p class="title is-uppercase is-bold is-title">
                 {{ $t('home.titleLastNews') }}
               </p>
             </div>
@@ -378,6 +378,10 @@ export default {
   background-position-y: center;
 }
 
+.column p {
+  color: white;
+}
+
 .is-register {
   margin-top: -2.2rem;
   transition: all 0.3s;
@@ -634,7 +638,7 @@ export default {
 }
 
 .account p {
-  color: #0c306a;
+  color: var(--text-primary-color);
   font-weight: normal;
   font-size: 2.5rem;
 }

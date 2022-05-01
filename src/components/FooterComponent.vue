@@ -5,7 +5,7 @@
         <p>{{ $t('footer.paragraph1', [new Date().getFullYear()]) }}</p>
         <div class="columns">
           <div class="column">
-            <h4 class="has-text-weight-medium has-text-left has-text-white">{{ $t('footer.footerTitle1') }}</h4>
+            <h4 class="has-text-weight-medium has-text-left-desktop has-text-white">{{ $t('footer.footerTitle1') }}</h4>
             <p class="has-text-left">{{ $t('footer.paragraph3') }}
               <br>
               {{ $t('footer.paragraph4') }}
@@ -66,5 +66,9 @@ export default {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.footer p {
+  color: white;
 }
 </style>

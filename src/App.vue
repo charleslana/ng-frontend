@@ -16,6 +16,29 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+:root {
+  --background-color-primary: white;
+  --background-color-secondary: #fafafa;
+  --accent-color: #cacaca;
+  --text-primary-color: #363636;
+  --element-size: 4rem;
+}
+
+:root.dark-theme {
+  --background-color-primary: #363636;
+  --background-color-secondary: #2d2d30;
+  --accent-color: #3f3f3f;
+  --text-primary-color: white;
+}
+
+p, li {
+  color: var(--text-primary-color);
+}
+
+.is-title {
+  color: var(--text-primary-color) !important;
+}
+
 /*nav {*/
 /*  padding: 30px;*/
 /*}*/
@@ -31,6 +54,8 @@
 
 body {
   padding-top: 0 !important;
+  background-color: var(--background-color-primary);
+  color: var(--text-primary-color);
 }
 
 .button {
@@ -88,6 +113,7 @@ body {
 }
 
 .title {
+  color: var(--text-primary-color);
   font-family: GTAmericaBold, Helvetica, Arial, sans-serif;
 }
 
