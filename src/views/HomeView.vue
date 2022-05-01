@@ -4,7 +4,7 @@
     <div class="home-bg"></div>
     <div class="has-text-centered">
       <b-button class="is-uppercase has-text-weight-bold is-register" size="is-large" type="is-primary"
-                @click="toggleRegisterModal">Cadastre-se
+                @click="toggleRegisterModal">{{ $t('home.registerButton') }}
       </b-button>
     </div>
     <section class="hero">
