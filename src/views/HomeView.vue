@@ -13,13 +13,13 @@
           <div class="level-left">
             <div class="level-item">
               <p class="title is-uppercase is-bold">
-                Ultimas Noticias
+                {{ $t('home.titleLastNews') }}
               </p>
             </div>
           </div>
           <div class="level-right">
             <router-link to="/">
-              <div class="level-item is-uppercase link"><p>Ver todas as Notícias</p></div>
+              <div class="level-item is-uppercase link"><p>{{ $t('home.seeAllNews') }}</p></div>
             </router-link>
           </div>
         </div>
@@ -53,13 +53,12 @@
           <div class="columns is-flex-wrap-wrap has-text-centered is-align-items-center">
             <div class="column is-half is-uppercase">
               <div data-aos="fade-up-right">
-                <p class="is-size-2 title">Bem vindo ao Naruto Game</p>
-                <p>Aventure-se nessa Aventura Ninja</p>
-                <p>Naruto Game é um dos mais populares "browser games" de Naruto. Em nosso jogo você será um ninja e sua
-                  missão é desenvolver suas habilidades e traçar seu próprio caminho ninja para tornar-se Kage.</p>
+                <p class="is-size-2 title">{{ $t('home.paragraph1') }}</p>
+                <p>{{ $t('home.paragraph2') }}</p>
+                <p>{{ $t('home.paragraph3') }}</p>
                 <b-button class="is-uppercase has-text-weight-bold mt-5 is-detail-button is-size-7-mobile"
-                          size="is-size-4-desktop" type="is-default" @click="toggleRegisterModal">Crie sua
-                  Conta
+                          size="is-size-4-desktop" type="is-default" @click="toggleRegisterModal">
+                  {{ $t('home.createYourAccountButton') }}
                 </b-button>
               </div>
             </div>
@@ -124,7 +123,7 @@
         </div>
         <div class="account">
           <h3 class="is-uppercase">{{ name }}</h3>
-          <p>{{ kage }} - Nível {{ level }}</p>
+          <p>{{ kage }} - {{ $t('home.villageLevel') }} {{ level }}</p>
         </div>
       </div>
     </section>
@@ -145,13 +144,12 @@
             </div>
             <div class="column is-half is-uppercase">
               <div data-aos="fade-up-left">
-                <p class="is-size-2 title">Escolha seu personagem</p>
-                <p>Aventure-se nessa Aventura Ninja</p>
-                <p>Você é livre para personalizar seu personagem e criar suas próprias combinações de habilidades,
-                  invocações, clãs e elementos</p>
+                <p class="is-size-2 title">{{ $t('home.paragraph6') }}</p>
+                <p>{{ $t('home.paragraph7') }}</p>
+                <p>{{ $t('home.paragraph8') }}</p>
                 <b-button class="is-uppercase mt-5 is-detail-2-button has-text-weight-bold is-size-7-mobile"
-                          size="is-size-4-desktop" type="is-default">Ver todos
-                  os personagens
+                          size="is-size-4-desktop" type="is-default">
+                  {{ $t('home.seeAllCharactersButton') }}
                 </b-button>
               </div>
             </div>
@@ -170,48 +168,49 @@
               <header class="modal-card-head">
                 <p class="modal-card-title">
                   <font-awesome-icon icon="fa-solid fa-user-ninja"/>
-                  Inicie sua Aventura
+                  {{ $t('home.modalTitle') }}
                 </p>
                 <button :disabled="isLoading" class="delete" type="button" @click="toggleRegisterModal"/>
               </header>
               <section class="modal-card-body">
                 <div v-if="errors.length" class="help is-danger">
-                  <strong>Por favor corrija os seguintes erro(s):</strong>
+                  <strong>{{ $t('home.modalErrorTitle') }}</strong>
                   <ul>
                     <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
                   </ul>
                 </div>
-                <b-field label="E-mail">
+                <b-field :label="$t('home.modalEmailField').toString()">
                   <b-input
                       v-model="email"
-                      placeholder="Informe seu e-mail"
+                      :placeholder="$t('home.modalPlaceholderEmailField').toString()"
                       required
                       type="email">
                   </b-input>
                 </b-field>
-                <b-field label="Senha">
+                <b-field :label="$t('home.modalPasswordField').toString()">
                   <b-input
                       v-model="password"
+                      :placeholder="$t('home.modalPlaceholderPasswordField').toString()"
                       password-reveal
-                      placeholder="Informe sua senha"
                       required
                       type="password">
                   </b-input>
                 </b-field>
-                <b-field label="Confirmar Senha">
+                <b-field :label="$t('home.modalPasswordConfirmationField').toString()">
                   <b-input
                       v-model="passwordConfirmation"
+                      :placeholder="$t('home.modalPlaceholderPasswordConfirmationField').toString()"
                       password-reveal
-                      placeholder="Confirme sua senha"
                       required
                       type="password">
                   </b-input>
                 </b-field>
-                <b-checkbox v-model="acceptTerms" required>Declaro que li e concordo com os Termos de Uso
+                <b-checkbox v-model="acceptTerms" required>{{ $t('home.modalAcceptTerms') }}
                 </b-checkbox>
               </section>
               <footer class="modal-card-foot">
-                <b-button :disabled="isLoading" :loading="isLoading" expanded label="Jogar Agora"
+                <b-button :disabled="isLoading" :label="$t('home.modalPlayNowButton').toString()" :loading="isLoading"
+                          expanded
                           type="is-info" @click="handleFormRegister"/>
               </footer>
             </div>
@@ -225,6 +224,7 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent";
 import FooterComponent from "@/components/FooterComponent";
+import i18n from "@/i18n";
 
 export default {
   data() {
@@ -342,19 +342,19 @@ export default {
     handleFormRegisterErrors() {
       this.errors = [];
       if (!this.email) {
-        this.errors.push("E-mail é requerido.");
+        this.errors.push(i18n.t('home.modalEmailFieldRequired'));
       }
       if (!this.validEmail(this.email)) {
-        this.errors.push('O e-mail deve ser válido.');
+        this.errors.push(i18n.t('home.modalEmailFieldValid'));
       }
       if (this.password !== this.passwordConfirmation) {
-        this.errors.push('A confirmação das senhas está incorreta.');
+        this.errors.push(i18n.t('home.modalPasswordFieldIncorrect'));
       }
       if (this.password.length < 6) {
-        this.errors.push('A senha deve conter no mínimo 6 caracteres');
+        this.errors.push(i18n.t('home.modalPasswordFieldMinimumCharacter'));
       }
       if (!this.acceptTerms) {
-        this.errors.push("Você deve aceitar os termos.");
+        this.errors.push(i18n.t('home.modalAcceptTermsField'));
       }
     },
     handleFieldsTrim() {

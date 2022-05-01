@@ -3,37 +3,33 @@
     <b-navbar :fixed-top="true">
       <template #brand>
         <b-navbar-item :to="{ path: '/' }" class="logo" tag="router-link">
-          <img
-              alt="Logo Ng"
-              src="../assets/images/layout/logo.png"
-          >
+          <img alt="Logo Ng" src="../assets/images/layout/logo.png">
         </b-navbar-item>
       </template>
       <template #start>
-        <b-navbar-item href="#">
-          Home
+        <b-navbar-item tag="router-link" to="/">
+          {{ $t('navBar.linkHome') }}
         </b-navbar-item>
-        <b-navbar-item href="#">
-          Notícias
+        <b-navbar-item tag="router-link" to="/news">
+          {{ $t('navBar.linkNews') }}
         </b-navbar-item>
-        <b-navbar-item href="#">
-          Hall da Fama
+        <b-navbar-item tag="router-link" to="/hall-of-fame">
+          {{ $t('navBar.linkHallOfFame') }}
         </b-navbar-item>
-        <b-navbar-item href="#">
-          Contato
+        <b-navbar-item tag="router-link" to="/contact">
+          {{ $t('navBar.linkContact') }}
         </b-navbar-item>
       </template>
-
       <template #end>
         <b-navbar-item tag="div">
           <div class="buttons">
             <b-button class="is-uppercase is-bold" type="is-primary" @click="toggleLoginModal">
               <font-awesome-icon class="mr-2" icon="fa-regular fa-user"/>
-              Login
+              {{ $t('navBar.loginButton') }}
             </b-button>
           </div>
         </b-navbar-item>
-        <b-navbar-item tag="div">
+        <b-navbar-item class="languages" tag="div">
           <img
               alt="Language Brazil"
               height="45"
@@ -41,7 +37,7 @@
               v-bind:class="getLocale('pt-BR')" width="45" @click="setLocale('pt-BR')"
           >
         </b-navbar-item>
-        <b-navbar-item tag="div">
+        <b-navbar-item class="languages" tag="div">
           <img
               alt="Language English"
               height="45"
@@ -58,33 +54,35 @@
               <header class="modal-card-head">
                 <p class="modal-card-title">
                   <font-awesome-icon icon="fa-solid fa-user-ninja"/>
-                  Acessar minha conta
+                  {{ $t('navBar.modalTitle') }}
                 </p>
                 <button :disabled="isLoading" class="delete" type="button" @click="toggleLoginModal"/>
               </header>
               <section class="modal-card-body">
-                <b-field label="E-mail">
+                <b-field :label="$t('navBar.modalEmailField').toString()">
                   <b-input
+                      :placeholder="$t('navBar.modalPlaceholderEmailField').toString()"
                       :value="email"
-                      placeholder="Informe seu e-mail"
                       required
                       type="email">
                   </b-input>
                 </b-field>
-                <b-field label="Senha">
+                <b-field :label="$t('navBar.modalPasswordField').toString()">
                   <b-input
+                      :placeholder="$t('navBar.modalPlaceholderPasswordField').toString()"
                       :value="password"
                       password-reveal
-                      placeholder="Informe sua senha"
                       required
                       type="password">
                   </b-input>
                 </b-field>
               </section>
               <footer class="modal-card-foot">
-                <b-button :disabled="isLoading" :loading="isLoading" expanded
-                          label="Acessar" native-type="submit" type="is-info"/>
-                <router-link class="link" style="width: 100%" to="/recover-password">Recuperar senha</router-link>
+                <b-button :disabled="isLoading" :label="$t('navBar.modalAccessButton').toString()" :loading="isLoading"
+                          expanded native-type="submit" type="is-info"/>
+                <router-link :hidden="isLoading" class="link" style="width: 100%" to="/recover-password">
+                  {{ $t('navBar.modalLinkRecoveryPassword') }}
+                </router-link>
               </footer>
             </div>
           </form>
@@ -114,16 +112,27 @@ export default {
     },
     handleFormLogin(e) {
       this.isLoading = true;
-      setTimeout(() => this.isLoading = false, 3000);
+      setTimeout(() => {
+        this.showToast('Login error');
+        this.isLoading = false;
+      }, 3000);
       e.preventDefault();
     },
     setLocale(locale) {
-      this.$root.$i18n.locale = locale;
-      this.locale = locale;
-      LocalStorageUtils.setLocale(locale);
+      if (this.$root.$i18n.locale !== locale) {
+        this.$root.$i18n.locale = locale;
+        this.locale = locale;
+        LocalStorageUtils.setLocale(locale);
+      }
     },
     getLocale(locale) {
       return this.locale === locale ? '' : 'label-opacity';
+    },
+    showToast(message) {
+      this.$buefy.toast.open({
+        message: message,
+        type: 'is-danger'
+      });
     }
   }
 }
@@ -222,7 +231,7 @@ nav a:hover:before {
   opacity: 0.3;
 }
 
-img {
+.languages img {
   cursor: pointer;
 }
 </style>

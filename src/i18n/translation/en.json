@@ -1,5 +1,45 @@
 {
+  "navBar": {
+    "linkHome": "Home",
+    "linkNews": "News",
+    "linkHallOfFame": "Hall of Fame",
+    "linkContact": "Contact",
+    "loginButton": "Login",
+    "modalTitle": "Access my account",
+    "modalEmailField": "Email",
+    "modalPlaceholderEmailField": "Inform your email",
+    "modalPasswordField": "Password",
+    "modalPlaceholderPasswordField": "Inform your password",
+    "modalAccessButton": "Access",
+    "modalLinkRecoveryPassword": "Recovery password"
+  },
   "home": {
-    "registerButton": "Register"
+    "registerButton": "Register",
+    "titleLastNews": "Latest news",
+    "seeAllNews": "See all News",
+    "paragraph1": "Welcome to Naruto Game",
+    "paragraph2": "Venture into this Ninja Adventure",
+    "paragraph3": "Naruto Game is one of the most popular \"browser games\" from Naruto. In our game you will be a ninja and your mission is to develop your skills and chart your own ninja path to become Kage.",
+    "createYourAccountButton": "Create your Account",
+    "villageLevel": "Level",
+    "paragraph6": "Choose your character",
+    "paragraph7": "Venture into this Ninja Adventure",
+    "paragraph8": "You are free to customize your character and create your own combinations of skills, summons, clans and elements",
+    "seeAllCharactersButton": "See all characters",
+    "modalTitle": "Start your Adventure",
+    "modalEmailField": "Email",
+    "modalPlaceholderEmailField": "Inform your email",
+    "modalPasswordField": "Password",
+    "modalPlaceholderPasswordField": "Inform your password",
+    "modalPasswordConfirmationField": "Confirm password",
+    "modalPlaceholderPasswordConfirmationField": "Confirm your password",
+    "modalAcceptTerms": "I declare that I have read and agree to the Terms of Use",
+    "modalPlayNowButton": "Play Now",
+    "modalErrorTitle": "Please fix the following errors:",
+    "modalEmailFieldRequired": "Email is required.",
+    "modalEmailFieldValid": "The email must be valid.",
+    "modalPasswordFieldIncorrect": "Confirmation of the entered passwords is incorrect.",
+    "modalPasswordFieldMinimumCharacter": "The password must contain at least 6 characters.",
+    "modalAcceptTermsField": "You must accept the terms."
   }
 }

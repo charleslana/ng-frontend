@@ -1,5 +1,45 @@
 {
+  "navBar": {
+    "linkHome": "Home",
+    "linkNews": "Notícias",
+    "linkHallOfFame": "Hall da Fama",
+    "linkContact": "Contato",
+    "loginButton": "Entrar",
+    "modalTitle": "Acessar minha conta",
+    "modalEmailField": "E-mail",
+    "modalPlaceholderEmailField": "Informe seu e-mail",
+    "modalPasswordField": "Senha",
+    "modalPlaceholderPasswordField": "Informe sua senha",
+    "modalAccessButton": "Acessar",
+    "modalLinkRecoveryPassword": "Recuperar senha"
+  },
   "home": {
-    "registerButton": "Cadastre-se"
+    "registerButton": "Cadastre-se",
+    "titleLastNews": "Ultimas Noticias",
+    "seeAllNews": "Ver todas as Notícias",
+    "paragraph1": "Bem vindo ao Naruto Game",
+    "paragraph2": "Aventure-se nessa Aventura Ninja",
+    "paragraph3": "Naruto Game é um dos mais populares \"browser games\" de Naruto. Em nosso jogo você será um ninja e sua missão é desenvolver suas habilidades e traçar seu próprio caminho ninja para tornar-se Kage.",
+    "createYourAccountButton": "Crie sua Conta",
+    "villageLevel": "Nível",
+    "paragraph6": "Escolha seu personagem",
+    "paragraph7": "Aventure-se nessa Aventura Ninja",
+    "paragraph8": "Você é livre para personalizar seu personagem e criar suas próprias combinações de habilidades, invocações, clãs e elementos",
+    "seeAllCharactersButton": "Ver todos os personagens",
+    "modalTitle": "Inicie sua Aventura",
+    "modalEmailField": "E-mail",
+    "modalPlaceholderEmailField": "Informe seu e-mail",
+    "modalPasswordField": "Senha",
+    "modalPlaceholderPasswordField": "Informe sua senha",
+    "modalPasswordConfirmationField": "Confirmar Senha",
+    "modalPlaceholderPasswordConfirmationField": "Confirme sua senha",
+    "modalAcceptTerms": "Declaro que li e concordo com os Termos de Uso",
+    "modalPlayNowButton": "Jogar Agora",
+    "modalErrorTitle": "Por favor corrija os seguintes erro(s):",
+    "modalEmailFieldRequired": "E-mail é requerido.",
+    "modalEmailFieldValid": "O e-mail deve ser válido.",
+    "modalPasswordFieldIncorrect": "A confirmação das senhas informadas estão incorreta.",
+    "modalPasswordFieldMinimumCharacter": "A senha deve conter no mínimo 6 caracteres.",
+    "modalAcceptTermsField": "Você deve aceitar os termos."
   }
 }
