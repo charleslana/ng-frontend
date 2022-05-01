@@ -11,6 +11,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import VueI18n from 'vue-i18n';
 import {defaultLocale, messages} from '@/i18n';
+import LocalStorageUtils from '@/utils/LocalStorageUtils';
 
 
 library.add(faUser, faArrowUp, faUserNinja, faCircleExclamation);
@@ -19,9 +20,11 @@ Vue.use(Buefy);
 Vue.use(VueI18n);
 Vue.config.productionTip = false;
 
+const userLanguage = LocalStorageUtils.getLocale();
+
 const i18n = new VueI18n({
     messages,
-    locale: defaultLocale,
+    locale: userLanguage,
     fallbackLocale: defaultLocale
 });
 
