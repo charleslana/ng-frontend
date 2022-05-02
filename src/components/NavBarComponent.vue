@@ -29,20 +29,8 @@
             </b-button>
           </div>
         </b-navbar-item>
-        <b-navbar-item class="languages" tag="div">
-          <img
-              alt="Language Brazil"
-              height="45"
-              src="../assets/images/social/brazil.svg"
-              v-bind:class="getLocale('pt-BR')" width="45" @click="setLocale('pt-BR')"
-          >
-        </b-navbar-item>
-        <b-navbar-item class="languages" tag="div">
-          <img
-              alt="Language English"
-              height="45"
-              src="../assets/images/social/usa.svg" v-bind:class="getLocale('en')" width="45" @click="setLocale('en')"
-          >
+        <b-navbar-item tag="div">
+          <translation-flag-component/>
         </b-navbar-item>
         <b-navbar-item tag="div">
           <theme-button-component/>
@@ -96,19 +84,18 @@
 </template>
 
 <script>
-import LocalStorageUtils from "@/utils/LocalStorageUtils";
 import ThemeButtonComponent from "@/components/ThemeButtonComponent";
+import TranslationFlagComponent from "@/components/TranslationFlagComponent";
 
 export default {
   name: "NavBarComponent",
-  components: {ThemeButtonComponent},
+  components: {TranslationFlagComponent, ThemeButtonComponent},
   data() {
     return {
       isModalActive: false,
       email: null,
       password: null,
-      isLoading: false,
-      locale: LocalStorageUtils.getLocale()
+      isLoading: false
     }
   },
   methods: {
@@ -122,16 +109,6 @@ export default {
         this.isLoading = false;
       }, 3000);
       e.preventDefault();
-    },
-    setLocale(locale) {
-      if (this.$root.$i18n.locale !== locale) {
-        this.$root.$i18n.locale = locale;
-        this.locale = locale;
-        LocalStorageUtils.setLocale(locale);
-      }
-    },
-    getLocale(locale) {
-      return this.locale === locale ? '' : 'label-opacity';
     },
     showToast(message) {
       this.$buefy.toast.open({
@@ -230,13 +207,5 @@ nav a:hover:before {
 
 .navbar-item img {
   max-height: none;
-}
-
-.label-opacity {
-  opacity: 0.3;
-}
-
-.languages img {
-  cursor: pointer;
 }
 </style>
