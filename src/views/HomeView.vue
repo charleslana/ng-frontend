@@ -45,9 +45,7 @@
       </div>
     </section>
     <section class="is-relative detail">
-      <div class="top">
-        <img alt="Detail 1" src="../assets/images/layout/home/detail-1.png"/>
-      </div>
+      <div class="top img-detail-1"></div>
       <div class="hero">
         <div class="hero-body">
           <div class="columns is-flex-wrap-wrap has-text-centered is-align-items-center">
@@ -73,9 +71,7 @@
           </div>
         </div>
       </div>
-      <div class="bottom">
-        <img alt="Detail 2" src="../assets/images/layout/home/detail-2.png"/>
-      </div>
+      <div class="bottom img-detail-2"></div>
     </section>
     <section class="map-section">
       <div class="map"></div>
@@ -114,12 +110,12 @@
             </div>
           </div>
         </div>
+        <div class="character-name is-uppercase title">
+          <h3>{{ characterName }}</h3>
+        </div>
         <div class="character-image">
           <img :src="require(`../assets/images/layout/home/hall-of-fame/${characterImage}.png`)"
                alt="Character avatar"/>
-        </div>
-        <div class="character-name is-uppercase title">
-          <h3>{{ characterName }}</h3>
         </div>
         <div class="account">
           <h3 class="is-uppercase">{{ name }}</h3>
@@ -128,9 +124,7 @@
       </div>
     </section>
     <section class="is-relative detail detail-2">
-      <div class="top reverse">
-        <img alt="Detail 2" src="../assets/images/layout/home/detail-2.png"/>
-      </div>
+      <div class="top img-detail-2 reverse"></div>
       <div class="hero">
         <div class="hero-body">
           <div class="columns is-flex-wrap-wrap has-text-centered is-align-items-center">
@@ -156,9 +150,7 @@
           </div>
         </div>
       </div>
-      <div class="bottom reverse">
-        <img alt="Detail 1" src="../assets/images/layout/home/detail-1.png"/>
-      </div>
+      <div class="bottom img-detail-1 reverse"></div>
     </section>
     <b-modal v-model="isModalActive" :can-cancel="false" has-modal-card trap-focus>
       <div class="card">
@@ -427,28 +419,48 @@ export default {
   color: #fc8833;
 }
 
-.detail .top img {
+.detail .top {
   background-color: #fc8833;
-  margin-bottom: -0.4rem;
 }
 
-.detail .bottom img {
+.img-detail-1 {
+  background-image: url(../assets/images/layout/home/detail-1-light.png);
+  background-repeat: no-repeat;
+  background-position: center right;
+  width: auto;
+  height: 211px;
+  margin-top: -1rem;
+}
+
+.dark-theme .img-detail-1 {
+  background-image: url(../assets/images/layout/home/detail-1-dark.png);
+}
+
+.img-detail-2 {
+  background-image: url(../assets/images/layout/home/detail-2-light.png);
+  background-repeat: no-repeat;
+  width: auto;
+  height: 391px;
+}
+
+.dark-theme .img-detail-2 {
+  background-image: url(../assets/images/layout/home/detail-2-dark.png);
+}
+
+.detail .bottom {
   background-color: #fc8833;
 }
 
 .detail-2 .hero {
   background-color: #5b8c79;
-  margin-top: -0.1rem;
 }
 
-.detail-2 .top img {
+.detail-2 .top {
   background-color: #5b8c79;
-  margin-bottom: 0.7rem;
 }
 
-.detail-2 .bottom img {
+.detail-2 .bottom {
   background-color: #5b8c79;
-  margin-bottom: -0.4rem;
 }
 
 .is-detail-2-button {
@@ -616,7 +628,6 @@ export default {
 
 .character-name {
   position: absolute;
-  z-index: -1;
   top: 2rem;
 }
 
@@ -645,6 +656,7 @@ export default {
 
 .reverse {
   transform: rotate(180deg);
+  background-position: center left;
 }
 
 @media screen and (max-width: 769px) {
@@ -726,8 +738,8 @@ export default {
     height: 27rem;
   }
 
-  .detail-2 .top img {
-    margin-bottom: 0.4rem;
+  .img-detail-2 {
+    height: 125px;
   }
 }
 </style>

@@ -31,7 +31,11 @@
   --text-primary-color: white;
 }
 
-p, li {
+p {
+  color: var(--text-primary-color);
+}
+
+.container li {
   color: var(--text-primary-color);
 }
 
@@ -141,5 +145,52 @@ body {
 
 .link:hover {
   color: #0069d9;
+}
+
+.modal .card-content {
+  background-color: var(--background-color-primary);
+}
+
+.modal .modal-card-head {
+  background-color: var(--background-color-primary);
+}
+
+.modal p, .modal label, .model span {
+  color: var(--text-primary-color);
+}
+
+.modal .modal-card-body {
+  background-color: var(--background-color-primary) !important;
+}
+
+.modal .modal-card-foot {
+  background-color: var(--background-color-primary) !important;
+}
+
+.modal .checkbox:hover {
+  color: var(--text-primary-color);
+}
+
+.select select, .taginput .taginput-container.is-focusable, .textarea, .input {
+  background-color: var(--background-color-primary) !important;
+  color: var(--text-primary-color) !important;
+}
+
+.b-checkbox.checkbox input[type=checkbox]:checked + .check {
+  background-color: #167df0 !important;
+  border-color: #167df0 !important;
+}
+
+.b-checkbox.checkbox:hover input[type=checkbox]:not(:disabled) + .check {
+  border-color: #167df0 !important;
+}
+
+.b-checkbox.checkbox input[type=checkbox]:focus:checked + .check {
+  -webkit-box-shadow: 0 0 0.5em rgb(22 125 240 / 80%) !important;
+  box-shadow: 0 0 0.5em rgb(22 125 240 / 80%) !important;
+}
+
+strong {
+  color: var(--text-primary-color) !important;
 }
 </style>

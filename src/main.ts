@@ -18,8 +18,6 @@ Vue.config.productionTip = false;
 
 new Vue({
     router, i18n, render: h => h(App), mounted() {
-        AOS.init({
-            disable: 'mobile'
-        });
+        AOS.init();
     },
 }).$mount('#app');
