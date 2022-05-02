@@ -1,6 +1,6 @@
 <template>
   <div class="level">
-    <div class="level-item">
+    <div class="level-item level-left">
       <img
           alt="Language Brazil"
           height="45"
@@ -8,7 +8,7 @@
           v-bind:class="getLocale('pt-BR')" width="45" @click="setLocale('pt-BR')"
       >
     </div>
-    <div class="level-item">
+    <div class="level-item level-left">
       <img
           alt="Language English"
           height="45"
