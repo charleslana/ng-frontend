@@ -58,6 +58,7 @@ export default {
   background-color: #0d0f1d;
   color: white;
   font-family: TAHOAMA, Helvetica, Arial, sans-serif;
+  margin-top: 1rem;
 }
 
 .footer a {

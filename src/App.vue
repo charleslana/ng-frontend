@@ -56,6 +56,10 @@ p {
 /*  color: #42b983;*/
 /*}*/
 
+html {
+  background-color: var(--background-color-primary) !important;
+}
+
 body {
   padding-top: 0 !important;
   background-color: var(--background-color-primary);
